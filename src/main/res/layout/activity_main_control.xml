@@ -1,262 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- activity_main_control.xml - Screen 1: Control Panel -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
-    android:fillViewport="true">
+    android:padding="16dp"
+    android:background="#F5F5F5">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- App Header -->
+        <!-- Top Card: Queue Control -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="8dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="16dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/header_gradient"
                 android:orientation="vertical"
-                android:padding="20dp"
-                android:gravity="center">
+                android:gravity="center"
+                android:padding="16dp"
+                android:background="@drawable/header_gradient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Queue Control"
-                    android:textColor="@android:color/white"
-                    android:textSize="22sp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="4dp" />
+                    android:layout_marginBottom="4dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Live parking management"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp"
-                    android:alpha="0.9" />
-
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Quick Stats -->
+        <!-- Stats Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal"
+            android:weightSum="3"
             android:layout_marginBottom="16dp">
 
-            <!-- Cars Waiting -->
+            <!-- Waiting -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginEnd="6dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="6dp">
+                android:layout_margin="4dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="15dp"
-                    android:gravity="center">
+                    android:padding="12dp"
+                    android:background="@drawable/queue_item_bg">
 
                     <TextView
                         android:id="@+id/tvWaitingCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="4"
-                        android:textColor="#667eea"
-                        android:textSize="24sp"
+                        android:text=""
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Waiting"
-                        android:textColor="#666666"
                         android:textSize="12sp" />
-
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Available Slots -->
+            <!-- Available -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginHorizontal="3dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="6dp">
+                android:layout_margin="4dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="15dp"
-                    android:gravity="center">
+                    android:padding="12dp"
+                    android:background="@drawable/queue_item_bg">
 
                     <TextView
                         android:id="@+id/tvAvailableSlots"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="18"
-                        android:textColor="#667eea"
-                        android:textSize="24sp"
+                        android:text=""
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Available"
-                        android:textColor="#666666"
                         android:textSize="12sp" />
-
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Average Wait -->
+            <!-- Avg Wait -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginStart="6dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="6dp">
+                android:layout_margin="4dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="15dp"
-                    android:gravity="center">
+                    android:padding="12dp"
+                    android:background="@drawable/queue_item_bg">
 
                     <TextView
                         android:id="@+id/tvAvgWait"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="12"
-                        android:textColor="#667eea"
-                        android:textSize="24sp"
+                        android:text=""
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Avg Wait"
-                        android:textColor="#666666"
                         android:textSize="12sp" />
-
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
         </LinearLayout>
 
-        <!-- Next Car Section -->
+        <!-- Next Car Card -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="8dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="16dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/success_gradient"
                 android:orientation="vertical"
-                android:padding="20dp"
-                android:gravity="center">
+                android:padding="16dp"
+                android:gravity="center"
+                android:background="#4CAF50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="NEXT CAR TO ENTER"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp"
-                    android:alpha="0.9"
-                    android:layout_marginBottom="8dp" />
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp"/>
 
                 <TextView
                     android:id="@+id/tvNextCarPlate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🚗 ABC-1234"
-                    android:textColor="@android:color/white"
+                    android:text="####"
+                    android:textColor="#FFFFFF"
                     android:textSize="26sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="6dp" />
+                    android:layout_marginBottom="4dp"/>
 
                 <TextView
                     android:id="@+id/tvNextCarInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Token #001 • Waiting 15 mins • Est: 3 mins left"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp"
-                    android:alpha="0.9" />
-
+                    android:text="Token # • Waiting # mins\nEst: # mins left"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Add Car Section -->
+        <!-- Add New Car Card -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="6dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="16dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <!-- Add New Car -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="➕ Add New Car"
-                    android:textColor="#333333"
-                    android:textSize="16sp"
+                    android:text="＋ Add New Car"
                     android:textStyle="bold"
-                    android:layout_marginBottom="12dp" />
+                    android:textSize="16sp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="8dp"/>
 
                 <EditText
                     android:id="@+id/etCarPlate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter car number plate"
-                    android:padding="15dp"
-                    android:background="@drawable/input_background"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="12dp"
-                    android:inputType="textCapCharacters" />
+                    android:background="@android:drawable/edit_text"
+                    android:padding="8dp"
+                    android:layout_marginBottom="8dp"/>
 
                 <Button
                     android:id="@+id/btnAddCar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Add to Queue"
-                    android:background="@drawable/primary_button"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:padding="15dp"
                     android:layout_marginBottom="12dp"
-                    android:textAllCaps="false" />
+                    android:backgroundTint="#7B1FA2"
+                    android:textColor="#FFFFFF"/>
 
-                <!-- Token Preview -->
                 <LinearLayout
                     android:id="@+id/layoutTokenPreview"
                     android:layout_width="match_parent"
@@ -271,7 +258,7 @@
                         android:id="@+id/tvTokenPreview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Next Token: #005"
+                        android:text="Next Token: #"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:textColor="#333333" />
@@ -280,11 +267,10 @@
                         android:id="@+id/tvPositionPreview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Position: 5th • Est. Wait: ~18 minutes"
+                        android:text="Position: # • Est. Wait: ~ minutes"
                         android:textSize="12sp"
                         android:textColor="#666666"
                         android:layout_marginTop="4dp" />
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -304,7 +290,7 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
                 android:text="✅ Allow Entry"
-                android:background="@drawable/success_button"
+                android:backgroundTint="#4CAF50"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
                 android:padding="15dp"
@@ -316,8 +302,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                android:text="⏱️ Show Estimates"
-                android:background="@drawable/warning_button"
+                android:text="⏱ Show Estimates"
+                android:backgroundTint="#FFB300"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
                 android:padding="15dp"
@@ -338,7 +324,7 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="4dp"
                 android:text="📋 View Queue"
-                android:background="@drawable/secondary_button"
+                android:backgroundTint="#673AB7"
                 android:textColor="@android:color/white"
                 android:padding="12dp"
                 android:textSize="14sp"
@@ -351,7 +337,7 @@
                 android:layout_weight="1"
                 android:layout_marginHorizontal="4dp"
                 android:text="🚨 Priority"
-                android:background="@drawable/danger_button"
+                android:backgroundTint="#F44336"
                 android:textColor="@android:color/white"
                 android:padding="12dp"
                 android:textSize="14sp"
@@ -364,7 +350,7 @@
                 android:layout_weight="1"
                 android:layout_marginStart="4dp"
                 android:text="🔄 Refresh"
-                android:background="@drawable/secondary_button"
+                android:backgroundTint="#3F51B5"
                 android:textColor="@android:color/white"
                 android:padding="12dp"
                 android:textSize="14sp"
@@ -373,4 +359,5 @@
         </LinearLayout>
 
     </LinearLayout>
+
 </ScrollView>
