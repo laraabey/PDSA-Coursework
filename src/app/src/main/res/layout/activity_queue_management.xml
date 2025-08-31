@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_queue_management.xml - Screen 2: Queue Management -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- App Header -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/header_gradient"
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Queue Manager"
+                    android:textColor="@android:color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/tvQueueSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4 cars • Next: ABC-1234"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:alpha="0.9" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Current Queue Section -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <!-- Queue Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="📋 Current Queue"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvQueueCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4 cars"
+                        android:background="@drawable/count_badge"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:padding="6dp" />
+
+                </LinearLayout>
+
+                <!-- Queue RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvQueue"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:scrollbars="vertical" />
+
+                <!-- Empty Queue Message -->
+                <TextView
+                    android:id="@+id/tvEmptyQueue"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:text="🅿️\n\nNo cars in queue\nAdd cars to get started"
+                    android:textColor="#666666"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingExtra="4dp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Time Estimation Section -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:background="#e7f3ff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⏱️ Waiting Time Calculator"
+                    android:textColor="#0066cc"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <EditText
+                    android:id="@+id/etEstimatePlate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter car plate to estimate wait time"
+                    android:padding="12dp"
+                    android:background="@drawable/estimate_input_background"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="10dp"
+                    android:inputType="textCapCharacters" />
+
+                <Button
+                    android:id="@+id/btnCalculateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calculate Time"
+                    android:background="@drawable/warning_button"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:padding="10dp"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="12dp"
+                    android:textAllCaps="false" />
+
+                <!-- Estimate Display -->
+                <LinearLayout
+                    android:id="@+id/layoutEstimateResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:padding="12dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/tvEstimatedTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="~13 minutes"
+                        android:textColor="#0066cc"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="5dp" />
+
+                    <TextView
+                        android:id="@+id/tvEstimateDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Based on position 3rd • Avg parking: 5 mins"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Cancel Waiting Section -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:background="#fff3cd">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="❌ Cancel Waiting"
+                    android:textColor="#856404"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <EditText
+                    android:id="@+id/etCancelPlate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter car plate to remove from queue"
+                    android:padding="12dp"
+                    android:background="@drawable/cancel_input_background"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="10dp"
+                    android:inputType="textCapCharacters" />
+
+                <Button
+                    android:id="@+id/btnRemoveFromQueue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Remove from Queue"
+                    android:background="@drawable/danger_button"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:padding="10dp"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="8dp"
+                    android:textAllCaps="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚠️ This will permanently remove the car and adjust all positions"
+                    android:textColor="#856404"
+                    android:textSize="11sp"
+                    android:layout_marginTop="8dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Quick Actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnProcessNext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_marginEnd="4dp"
+                android:text="Process Next"
+                android:background="@drawable/success_button"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:padding="12dp"
+                android:textSize="14sp"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnSearchCar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="4dp"
+                android:text="🔍 Search"
+                android:background="@drawable/secondary_button"
+                android:textColor="@android:color/white"
+                android:padding="12dp"
+                android:textSize="14sp"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnRefreshQueue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:text="🔄 Refresh"
+                android:background="@drawable/secondary_button"
+                android:textColor="@android:color/white"
+                android:padding="12dp"
+                android:textSize="14sp"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
