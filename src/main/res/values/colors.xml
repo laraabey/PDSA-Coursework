@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_color">#667eea</color>
+    <color name="primary_dark">#764ba2</color>
+    <color name="success_color">#28a745</color>
+    <color name="success_dark">#20c997</color>
+    <color name="danger_color">#dc3545</color>
+    <color name="danger_dark">#c82333</color>
+    <color name="warning_color">#ffc107</color>
+    <color name="warning_dark">#e0a800</color>
+    <color name="secondary_color">#6c757d</color>
+    <color name="secondary_dark">#5a6268</color>
+    <color name="next_car_background">#f8fff9</color>
+    <color name="normal_background">#f8f9fa</color>
+</resources>
